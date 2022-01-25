@@ -1,0 +1,20 @@
+#-----------------------------------------------------------------------
+This is the list of commands I tried, failed rectified.
+I think I can update this repo with Errors I faced and Solutions i figured
+out.
+
+For now it's basic terraform commands.
+#-----------------------------------------------------------------------
+
+
+terraform init 			#in dir where you have your main, variables file
+
+terraform validate 		#validates Syntax
+
+
+terraform plan			#Review what is to be made and how
+
+If above two don't throw you off the cliff with errors
+
+
+terraform apply			#The end. Check for files where you expected them.
