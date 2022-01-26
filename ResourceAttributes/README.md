@@ -1,4 +1,4 @@
-#THE RESOURCE ATTRIBUTES
+# THE RESOURCE ATTRIBUTES
 
 This folder has two files 
 A) main.tf (main resource definitions)
@@ -13,7 +13,7 @@ b) [random_pet](https://registry.terraform.io/providers/weekendops/random/latest
 
 Using random_pet sounded more interesting than random passwords or interger or the cloud things. 
 
-###The Logic
+### The Logic
 So we have two resources and we want to use output of one value as input of/in other.
 In our example I simply wanted to generate a pet name and insert it for content argument of local_file module.
 
