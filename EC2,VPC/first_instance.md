@@ -89,7 +89,8 @@ And some identifying tags.
 
 
 ###The Finale
- Pheww.. 
+
+Pheww.. 
 That was big. So finally all you gotta do ship-shape your code.
 ```HCL
 terraform init
