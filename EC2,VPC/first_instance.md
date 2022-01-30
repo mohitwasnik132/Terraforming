@@ -70,8 +70,8 @@ short. Each AMI has unique `id` in every region. And hence you can not use AMI i
  ```HCL
   Error: Error launching source instance: InvalidAMIID.NotFound: The image id '[ami-0651f1bab1a933ae5]' does not exist
   ```
-It's tricky to debug and easy to miss. You do copy the ami from AWS, you check and triple check , it's all good , but error keeps popping. And it will so if you don't copy the_
-correct AMI from **correct region**_  If you see something akin to this just ⭐CHECK YOUR REGION⭐. Make sure it matches both in .tf file and AWS console where you are launching it in.
+It's tricky to debug and easy to miss. You do copy the ami from AWS, you check and triple check , it's all good , but error keeps popping. And it will so if you don't copy the
+correct AMI from **correct region**  If you see something akin to this just ⭐CHECK YOUR REGION⭐. Make sure it matches both in .tf file and AWS console where you are launching it in.
 That aside, since it's a practice I (you should too) am using free tier `t2.micro` and `Amazon Linux 2 AMI id` from Ohio region.
 defined by parameters `Instance type =` and `ami =` 
 
@@ -88,7 +88,7 @@ Again it should be in the same region as defined in code.
 And some identifying tags.
 
 
-###The Finale
+### The Finale
 
 Pheww.. 
 That was big. So finally all you gotta do ship-shape your code.
