@@ -1,5 +1,14 @@
 #!/bin/bash
 
+
+
+
+## Very straight forward script to install docker. 
+##### This done on trial instance to check if my intended script has some bugs
+
+
+
+
 sudo apt update
 sudo apt upgrade
 sudo apt-get install curl apt-transport-https ca-certificates software-properties-common
