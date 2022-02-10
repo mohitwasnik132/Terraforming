@@ -10,7 +10,7 @@ resource "aws_instance" "DockerReady" {
   }
 
   connection {
-    user        = var.USERNAME
+    user        = var.username
     private_key = file(var.privkey)
     host        = self.public_ip
   }
@@ -46,11 +46,19 @@ resource "aws_instance" "instancetrial" {
   }
 
   connection {
-    user        = var.USERNAME
+    user        = var.username
     private_key = file(var.privkey)
     host        = self.public_ip
   }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -67,8 +75,16 @@ resource "aws_instance" "adityatrial" {
   }
 
   connection {
-    user        = var.USERNAME
+    user        = var.username
     private_key = file(var.privkey)
     host        = self.public_ip
   }
 }
+
+
+
+
+
+
+
+
