@@ -12,3 +12,8 @@ variable "pubkey" {
 variable "username" {
   default = "ubuntu"
 }
+
+
+locals {
+  sgpub = aws_security_group.allpubsg.id
+}

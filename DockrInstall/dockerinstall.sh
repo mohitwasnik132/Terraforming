@@ -3,9 +3,10 @@
 
 ##This is official Docker Docs installation. https://docs.docker.com/engine/install/ubuntu/
 #I just consolidated everything and added simple code to filter
-
+sleep 30                          ##following a random idea
 sudo apt update
 
+sleep 10                          ## lets see if this is hampering
 sudo apt-get install ca-certificates curl gnupg lsb-release 2>/dev/null
 
 
