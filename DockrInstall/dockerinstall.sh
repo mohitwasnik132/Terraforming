@@ -1,6 +1,9 @@
 #!/bin/bash
 
 
+##This is official Docker Docs installation. https://docs.docker.com/engine/install/ubuntu/
+#I just consolidated everything and added simple code to filter
+
 sudo apt update
 
 sudo apt-get install ca-certificates curl gnupg lsb-release 2>/dev/null
@@ -21,7 +24,13 @@ echo \
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 
-VERSION_STRING=$(apt-cache madison docker-ce | awk -F "|" 'NR==1{print $2; exit}'|tr -d "[:space:]")
+###############################################################################################################
+VERSION_STRING=$(apt-cache madison docker-ce | awk -F "|" 'NR==1{print $2; exit}'|tr -d "[:space:]")      ##just a trial to catch latest string ;) 
+
+## Call it dumb code. I know we already can get latest.. but having fun. Will find some use for this :D
+###############################################################################################################
+
+
 
 sudo apt-get install docker-ce="${VERSION_STRING}" docker-ce-cli="${VERSION_STRING}" containerd.io
 
