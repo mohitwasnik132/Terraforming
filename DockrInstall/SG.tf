@@ -1,34 +1,16 @@
-resource "aws_security_group" "allpubsg" {
-  name        = "Public-SecurityGroup"
-  description = "allows all traffic from SSH HTTP HTTPS"
-  # vpc_id =  
+module "http-sg" {
+  source = "terraform-aws-modules/security-group/aws"
 
-  ingress {
-    cidr_blocks = ["0.0.0.0/0"]
-    description = "ALL IN SSH"
-    from_port   = 22
-    protocol    = "tcp"
-    to_port     = 22
-  }
+  name        = "http_sg"
+  description = "Security group for HTTP/HTTPS/ICMP access"
+  vpc_id      = data.aws_vpc.default.id
 
-  ingress {
-    cidr_blocks = ["0.0.0.0/0"]
-    description = "ALL IN HTTP"
-    from_port   = 80
-    protocol    = "tcp"
-    to_port     = 80
-  }
+  ingress_cidr_blocks = ["0.0.0.0/0"]
+  ingress_rules       = ["http-80-tcp", "https-443-tcp"]
+  #Follow 
+  #https://github.com/terraform-aws-modules/terraform-aws-security-group/blob/master/rules.tf   variable "auto_groups" for better understanding 
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "ALL_SG"
-  }
 }
+
 
 
