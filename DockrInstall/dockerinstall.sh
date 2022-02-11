@@ -64,9 +64,9 @@ sudo apt-get install docker-ce="${VERSION_STRING}" docker-ce-cli="${VERSION_STRI
 #Setup Post Install to run docker without root priviledge
 #adds ubuntu to docker group
 
-sudo groupadd docker
-sleep 3
-sudo usermod -aG docker $USER
+sudo usermod -a -G docker ubuntu
+
+
 
 #Activate changes to group
 newgrp docker                  

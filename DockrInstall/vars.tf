@@ -17,17 +17,9 @@ variable "username" {
 
 locals {
   vpc_id = data.aws_vpc.default.id
+
+  key      = aws_key_pair.mykey.key_name
+  instance = aws_instance.docker
 }
 
 
-
-###################################################                                                                               #
-data "aws_vpc" "default" { #
-  default = true           #
-}                          #
-#
-data "aws_security_group" "default" { #
-  name   = "default"                  #
-  vpc_id = data.aws_vpc.default.id    #
-}                                     #
-###################################################
