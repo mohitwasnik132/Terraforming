@@ -16,7 +16,7 @@ variable "username" {
 
 
 locals {
-  sgpub = aws_security_group.allpubsg.id
+  vpc_id = data.aws_vpc.default.id
 }
 
 

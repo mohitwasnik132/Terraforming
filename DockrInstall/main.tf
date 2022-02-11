@@ -9,7 +9,7 @@ resource "aws_instance" "DockerReady" {
   instance_type = "t2.micro"
   key_name      = aws_key_pair.mykey.key_name
   # subnet_id     =  
-  vpc_security_group_ids = [local.sgpub]
+  vpc_security_group_ids = [local.vpc_id]
   user_data              = file("dockerinstall.sh")
 
   tags = {
@@ -28,7 +28,7 @@ resource "aws_instance" "DockerReady" {
 resource "aws_instance" "instancetrial" {
   ami                    = "ami-0851b76e8b1bce90b"
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [local.sgpub]
+  vpc_security_group_ids = [local.vpc_id]
   key_name               = aws_key_pair.mykey.key_name
   user_data              = file("trial.sh")
 
