@@ -85,34 +85,40 @@ data "aws_ami" "centos" {
   }
 }
 
+#=============AMAZON2-LINUX-LATEST=========================#
+
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-ebs"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+
+}
+
 
 
 
 #=============OUTPUTS=========================#
 
-# output "ami_name" {
-#   value = ([data.aws_ami.ubuntu.name,
-#     data.aws_ami.centos.name,
-#     data.aws_ami.windows_12.name
-#   ])
-# }
 
-
-
-# output "ami_id" {
-#   value = ([data.aws_ami.ubuntu.image_id,
-#     data.aws_ami.centos.image_id,
-#     data.aws_ami.windows_12.image_id
-#   ])
-# }
 
 locals {
   name = {
     
-    UBUNTU            = [data.aws_ami.ubuntu.name, data.aws_ami.ubuntu.image_id]
-    CENTOS            = [data.aws_ami.centos.name, data.aws_ami.centos.image_id]
-    WINDOWS-SERVER-12 = [data.aws_ami.windows_12.name, data.aws_ami.windows_12.image_id]
-    WINDOWS-SERVER-19 = [data.aws_ami.windows_19.name, data.aws_ami.windows_19.image_id]
+    UBUNTU                  = [data.aws_ami.ubuntu.name, data.aws_ami.ubuntu.image_id]
+    AMAZON Linux            = [data.aws_ami.amazon_linux.name, data.aws_ami.amazon_linux.image_id]
+    CENTOS                  = [data.aws_ami.centos.name, data.aws_ami.centos.image_id]
+    WINDOWS-SERVER-12       = [data.aws_ami.windows_12.name, data.aws_ami.windows_12.image_id]
+    WINDOWS-SERVER-19       = [data.aws_ami.windows_19.name, data.aws_ami.windows_19.image_id]
   }
 }
 
