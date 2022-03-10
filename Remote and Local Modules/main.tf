@@ -25,3 +25,14 @@ module "instance" {
   source = "./ec2"
 
 }
+  
+ # module "instance" {
+ # source = "./ec2"
+ #   ami  = data.aws_ami.<name>.image_id
+ #   keyname = "<your-key-name>"
+
+#}
+  
+  #ami - use data source to call uopn desied os ami_id. 
+  #"Keyname" - key of name keyname  will be auto generated and applied and private key can be found in root directory.
+  
