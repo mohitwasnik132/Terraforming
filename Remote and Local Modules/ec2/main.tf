@@ -1,5 +1,5 @@
 resource "aws_instance" "webserver" {
-  ami           = lookup(var.ami_id, var.region)
+  ami           = var.ami
   instance_type = "${var.instance_type}"
   key_name = "${var.keyname}"
   user_data = var.userdata
