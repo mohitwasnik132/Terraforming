@@ -2,6 +2,16 @@ variable "name" {
   type = string
   default = "Local_webserver"
 }
+
+variable "aws_region" {
+   type        = string
+   default     = "ap-south-1"
+}
+
+variable "ami" {
+  type        = string
+  default     = ""
+}
 variable "instance_count" {
   type    = number
   default = 1
