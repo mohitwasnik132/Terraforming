@@ -1,0 +1,76 @@
+var.number_of_instances
+  Provide number of instances to be created
+
+  Enter a value: 0
+
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_key_pair.key_pair will be created
+  + resource "aws_key_pair" "key_pair" {
+      + arn             = (known after apply)
+      + fingerprint     = (known after apply)
+      + id              = (known after apply)
+      + key_name        = "Demokey"
+      + key_name_prefix = (known after apply)
+      + key_pair_id     = (known after apply)
+      + public_key      = (known after apply)
+      + tags_all        = (known after apply)
+    }
+
+  # aws_security_group.allow_all will be created
+  + resource "aws_security_group" "allow_all" {
+      + arn                    = (known after apply)
+      + description            = "Managed by Terraform"
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 65535
+            },
+        ]
+      + name                   = (known after apply)
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags_all               = (known after apply)
+      + vpc_id                 = (known after apply)
+    }
+
+  # local_file.prikey will be created
+  + resource "local_file" "prikey" {
+      + content              = (sensitive)
+      + directory_permission = "0777"
+      + file_permission      = "600"
+      + filename             = "./Demokey"
+      + id                   = (known after apply)
+    }
+
+  # tls_private_key.key will be created
+  + resource "tls_private_key" "key" {
+      + algorithm                     = "RSA"
+      + ecdsa_curve                   = "P224"
+      + id                            = (known after apply)
+      + private_key_openssh           = (sensitive value)
+      + private_key_pem               = (sensitive value)
+      + public_key_fingerprint_md5    = (known after apply)
+      + public_key_fingerprint_sha256 = (known after apply)
+      + public_key_openssh            = (known after apply)
+      + public_key_pem                = (known after apply)
+      + rsa_bits                      = 2048
+    }
+
+Plan: 4 to add, 0 to change, 0 to destroy.
