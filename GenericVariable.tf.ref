@@ -1,0 +1,77 @@
+# Generic File for student reference
+
+provider "aws" {
+  region = "ap-south-1"
+}
+
+
+variable "vpc_name" {
+  type    = string
+  default = "myvpc"
+}
+
+variable "port_ssh" {
+  type    = number
+  default = 22
+}
+
+variable "isEnabled" {
+  default = true
+}
+
+
+variable "inputname" {
+  type        = string
+  description = "Please provide name for the VPC"
+}
+
+
+
+
+#Advanced Data Types
+
+variable "a_list" {
+  type    = list(string)
+  default = ["Value1", "Value2"]
+}
+
+variable "a_map" {
+  type = map
+  default = {
+    Key1 = "Value1"
+    Key2 = "Value2"
+  }
+}
+
+
+variable "a_tuple" {
+  type    = tuple([string, number, string])
+  default = ["apple", 10, "aws"]
+}
+
+variable "an_object" {
+  type = object({ name = string, port = list(number) })
+  default = {
+    name = "ports list"
+    port = [22, 25, 80]
+  }
+}
+
+
+
+
+#example resource is simple vpc
+resource "aws_vpc" "myvpc" {
+  cidr_block = "10.0.0.0/16"
+
+  tags = {
+    Name = var.inputname
+  }
+}
+
+output "vpcid" {
+  value = aws_vpc.myvpc.id
+}
+
+
+
